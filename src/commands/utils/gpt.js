@@ -29,7 +29,7 @@ module.exports = {
 			.setColor('75a99c')
 			.setTitle(displayQuestion)
 			.setDescription(answer)
-			.setFooter({ text: 'Source: GPT 3.5', iconURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png' })
+			.setFooter({ text: 'GPT 3.5', iconURL: 'https://i.imgur.com/lLt2BlL.png' })
 
 		await interaction.editReply({ ephemeral: false, embeds: [embed] });
 	},

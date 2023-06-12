@@ -16,7 +16,8 @@ module.exports = {
 		const song = interaction.options.getString('song');
 		await interaction.deferReply();
 
-		const results = await client.spotify.tracks.search(song);
+		const results = await client.spotify.tracks.search(song, { limit: 1 });
+		if (results.length === 0) return await interaction.editReply("Something went wrong, no tracks found");
 		const track = results[0];
 
 		const songTitle = track.name;
@@ -36,7 +37,7 @@ module.exports = {
 			.setTitle(`${songTitle}\n${songAuthor}`)
 			.setThumbnail(track.album.images[0].url)
 			.setDescription(lyrics)
-			.setFooter({ text: 'Source: Spotify + MusixMatch', iconURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png' })
+			.setFooter({ text: 'Spotify + MusixMatch', iconURL: 'https://i.imgur.com/Ro8WpcM.png' })
 
 		await interaction.editReply({ ephemeral: false, embeds: [embed] });
 	},
