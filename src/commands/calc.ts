@@ -1,7 +1,7 @@
 import { Command } from '../utils/classes';
 import { Bot } from '../bot';
 import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder } from 'discord.js';
-import math from 'mathjs';
+import { evaluate } from 'mathjs';
 
 export default new Command({
     data: new SlashCommandBuilder()
@@ -18,8 +18,8 @@ export default new Command({
         
         let res;
         try {
-            res = math.evaluate(question);
-        } catch (err) {
+            res = evaluate(question);
+        } catch (_) {
             await interaction.reply({ content: 'Please, provide a **valid** question', ephemeral: true });
             return;
         }

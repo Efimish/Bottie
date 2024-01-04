@@ -46,10 +46,10 @@ export default new Command({
             .addFields(
                 { name: 'Temperature', value: `${data.main.temp}°C`, inline: true },
                 { name: 'Feels like', value: `${data.main.feels_like}°C`, inline: true },
-                { name: 'Timezone', value: `UTC${data.main.timezone / 3600}`, inline: true },
-                { name: 'Wind (M/S)', value: `${data.main.wind.speed} ${getDirection(data.wind.deg)}`, inline: true },
+                { name: 'Timezone', value: `UTC${data.timezone / 3600}`, inline: true },
+                { name: 'Wind (M/S)', value: `${data.wind.speed} ${getDirection(data.wind.deg)}`, inline: true },
                 { name: 'Humidity', value: `${data.main.humidity}%`, inline: true },
-                { name: 'Visibility', value: `${data.main.visibility / 1000} km`, inline: true }
+                { name: 'Visibility', value: `${data.visibility / 1000} km`, inline: true }
             );
         
         await interaction.reply({
