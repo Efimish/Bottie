@@ -1,0 +1,21 @@
+{
+  "name": "bottie",
+  "version": "0.0.1",
+  "description": "discord bot",
+  "main": "bot.ts",
+  "scripts": {
+    "start": "ts-node src/bot.ts"
+  },
+  "author": "Efima",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.4",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1",
+    "mathjs": "^12.2.1"
+  }
+}
