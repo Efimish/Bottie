@@ -5,7 +5,7 @@ import { Bot } from '../bot';
 export default new Event({
     name: Events.ClientReady,
     once: true,
-    execute: async (_, bot: Bot) => {
+    execute: async (bot: Bot) => {
         const user = bot.discord.user!;
         user.setStatus('online');
         user.setActivity('you', { type: ActivityType.Listening });

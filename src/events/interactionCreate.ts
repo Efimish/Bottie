@@ -5,7 +5,7 @@ import { Bot } from '../bot';
 export default new Event({
     name: Events.InteractionCreate,
     once: false,
-    execute: async (interaction: Interaction, bot: Bot) => {
+    execute: async (bot: Bot, interaction: Interaction) => {
         if (!interaction.isChatInputCommand()) return;
         const command = bot.commands.get(interaction.commandName);
         if (!command) return;
