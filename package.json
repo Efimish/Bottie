@@ -7,7 +7,12 @@
     "start": "npx ts-node src/main.ts",
     "watch": "npx nodemon src/main.ts"
   },
-  "keywords": ["discord", "discord.js", "typescript", "bot"],
+  "keywords": [
+    "discord",
+    "discord.js",
+    "typescript",
+    "bot"
+  ],
   "author": "Efima",
   "license": "MIT",
   "engines": {
@@ -27,6 +32,7 @@
     "@types/yt-search": "^2.10.3",
     "discord.js": "^14.15.3",
     "dotenv": "^16.4.5",
+    "ffmpeg-static": "^5.2.0",
     "sqlite3": "^5.1.7",
     "tweetnacl": "^1.0.3",
     "yt-search": "^2.11.1",
