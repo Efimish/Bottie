@@ -7,7 +7,7 @@ const data = new SlashCommandBuilder()
     .setDescriptionLocalization(Locale.Russian, 'Информация о боте');
 
 const execute = async (interaction: CommandInteraction) => {
-    const avatar = interaction.user.displayAvatarURL({ size: 256, extension: 'png' })
+    const avatar = interaction.client.user.displayAvatarURL({ size: 256, extension: 'png' })
     const uptime = Math.floor(interaction.client.uptime / 1000);
     const ping = interaction.client.ws.ping;
     const servers = interaction.client.guilds.cache.size;

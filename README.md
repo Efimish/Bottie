@@ -9,7 +9,7 @@ Simple discord bot written in `TypeScript` using `discord.js` library.
 
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=fff)
 ![NodeJS](https://img.shields.io/badge/-NodeJS-5FA04E?logo=node.js&logoColor=fff)
-![SQLite](https://img.shields.io/badge/-SQLite-003B57?logo=sqlite&logoColor=fff)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1?logo=postgresql&logoColor=fff)
 ![Prisma](https://img.shields.io/badge/-Prisma-2D3748?logo=prisma&logoColor=fff)
 
 ## Installation
