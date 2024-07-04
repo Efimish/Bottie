@@ -4,7 +4,8 @@
   "description": "simple discord bot",
   "main": "main.ts",
   "scripts": {
-    "start": "npx nodemon src/main.ts"
+    "start": "npx ts-node src/main.ts",
+    "watch": "npx nodemon src/main.ts"
   },
   "keywords": ["discord", "discord.js", "typescript", "bot"],
   "author": "Efima",
