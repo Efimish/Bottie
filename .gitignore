@@ -1,0 +1,11 @@
+# dependencies
+node_modules
+# OS
+.DS_Store
+# IDE
+.vscode
+# sqlite data
+*.db*
+# env secrets
+.env
+!.env.example

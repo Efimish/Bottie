@@ -1,0 +1,31 @@
+{
+  "name": "bottie",
+  "version": "0.0.1",
+  "description": "simple discord bot",
+  "main": "main.ts",
+  "scripts": {
+    "start": "npx nodemon src/main.ts"
+  },
+  "keywords": ["discord", "discord.js", "typescript", "bot"],
+  "author": "Efima",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "nodemon": "^3.1.4",
+    "prisma": "^5.16.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "@discordjs/opus": "^0.9.0",
+    "@discordjs/voice": "^0.17.0",
+    "@prisma/client": "^5.16.1",
+    "@types/yt-search": "^2.10.3",
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "sqlite3": "^5.1.7",
+    "tweetnacl": "^1.0.3",
+    "yt-search": "^2.11.1",
+    "ytdl-core": "^4.11.5"
+  }
+}
