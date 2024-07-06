@@ -96,10 +96,10 @@ const execute = async (interaction: ChatInputCommandInteraction) => {
         });
         const resource = createAudioResource(stream);
         player.play(resource);
-        
+
         await interaction.editReply(`Playing ${video.title}`);
     }
-    
+
     await interaction.editReply(`Added ${video.title} to queue`);
 }
 

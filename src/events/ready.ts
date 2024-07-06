@@ -7,21 +7,19 @@ client.once(Events.ClientReady, async client => {
     client.user.setActivity('you', { type: ActivityType.Listening });
     console.log(`Logged in as ${client.user.tag}`);
     
+    // We already checked for the existance of token in main.ts
     const rest = new REST().setToken(process.env.token!);
-    const guildIDs = client.guilds.cache.map(guild => guild.id);
-    console.log(`Updating ${commands.length} commands on ${guildIDs.length} servers`);
     const botID = client.user.id;
-    const commandsData = commands.map(command => command.data);
+    const guildIDs = client.guilds.cache.map(guild => guild.id);
+    const commandsBody = commands.map(command => command.data);
+    const promises = guildIDs.map(guildID => rest.put(
+        Routes.applicationGuildCommands(botID, guildID),
+        { body: commandsBody }
+    ));
+
+    console.log(`Updating ${commandsBody.length} commands on ${guildIDs.length} servers`);
+    
     try {
-        const promises = [];
-        for (const guildID of guildIDs) {
-            promises.push(
-                rest.put(
-                    Routes.applicationGuildCommands(botID, guildID),
-                    { body: commandsData }
-                )
-            );
-        }
         await Promise.all(promises);
         console.log('Commands updated successfully!');
     } catch (error) {

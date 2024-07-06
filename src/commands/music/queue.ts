@@ -16,7 +16,7 @@ const execute = async (interaction: CommandInteraction) => {
     });
 
     const queue = queueRows.map(r => r.title);
-    
+
     interaction.reply('Queue: ' + queue.join(', '));
 }
 
