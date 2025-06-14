@@ -1,0 +1,11 @@
+node_modules
+Containerfile*
+compose*
+.containerignore
+.git
+.gitignore
+README.md
+LICENSE
+.vscode
+.env
+.editorconfig
