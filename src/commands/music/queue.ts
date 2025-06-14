@@ -1,23 +1,14 @@
-import { SlashCommandBuilder, CommandInteraction, Collection } from 'discord.js';
-import database from '../../database';
+import { Command } from "../../types";
+import queue from "../../queue";
+import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
 
-const data = new SlashCommandBuilder()
-    .setName('queue')
-    .setDescription('Show your server music queue');
+export default new Command(
+  new SlashCommandBuilder()
+    .setName("queue")
+    .setDescription("Show your server music queue"),
+  async (interaction: ChatInputCommandInteraction) => {
+    const titles = queue.getQueue(interaction.guildId!).map((t) => t.title);
 
-const execute = async (interaction: CommandInteraction) => {
-    const queueRows = await database.queueItem.findMany({
-        where: {
-            serverId: interaction.guildId!
-        },
-        orderBy: {
-            createdAt: 'asc'
-        }
-    });
-
-    const queue = queueRows.map(r => r.title);
-
-    interaction.reply('Queue: ' + queue.join(', '));
-}
-
-export default { data, execute };
+    await interaction.reply("Queue: " + titles.join(", "));
+  }
+);

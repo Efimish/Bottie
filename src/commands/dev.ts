@@ -1,16 +1,17 @@
-import { getVoiceConnection } from '@discordjs/voice';
-import { SlashCommandBuilder, CommandInteraction } from 'discord.js';
+import { Command } from "../types";
+import { getVoiceConnection } from "@discordjs/voice";
+import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
 
-const data = new SlashCommandBuilder()
-    .setName('dev')
-    .setDescription('dev');
-
-const execute = (interaction: CommandInteraction) => {
-    if (interaction.user.id !== process.env.owner) return interaction.reply('You can\'t use this');
+export default new Command(
+  new SlashCommandBuilder().setName("dev").setDescription("dev"),
+  async (interaction: ChatInputCommandInteraction) => {
+    if (interaction.user.id !== process.env.owner) {
+      await interaction.reply("You can't use this");
+      return;
+    }
 
     const connection = getVoiceConnection(interaction.guildId!);
     console.log(connection);
-    interaction.reply('Done');
-}
-
-export default { data, execute };
+    await interaction.reply("Done");
+  }
+);

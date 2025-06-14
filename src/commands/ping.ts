@@ -1,17 +1,21 @@
-import { SlashCommandBuilder, CommandInteraction, Locale } from 'discord.js';
+import { Command } from "../types";
+import {
+  SlashCommandBuilder,
+  ChatInputCommandInteraction,
+  Locale,
+} from "discord.js";
 
-const data = new SlashCommandBuilder()
-    .setName('ping')
-    .setDescription('Replies with Pong!')
-    .setNameLocalization(Locale.Russian, 'пинг')
-    .setDescriptionLocalization(Locale.Russian, 'Отвечает Понг!');
-
-const execute = (interaction: CommandInteraction) => {
+export default new Command(
+  new SlashCommandBuilder()
+    .setName("ping")
+    .setDescription("Replies with Pong!")
+    .setNameLocalization(Locale.Russian, "пинг")
+    .setDescriptionLocalization(Locale.Russian, "Отвечает Понг!"),
+  async (interaction: ChatInputCommandInteraction) => {
     if (interaction.locale === Locale.Russian) {
-        interaction.reply('Понг!');
-        return;
+      await interaction.reply("Понг!");
+      return;
     }
-    interaction.reply('Pong!');
-}
-
-export default { data, execute };
+    await interaction.reply("Pong!");
+  }
+);

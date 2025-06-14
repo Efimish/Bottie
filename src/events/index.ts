@@ -1,7 +1,4 @@
-import ready from './ready';
-import interactionCreate from './interactionCreate';
+import ready from "./ready";
+import interactionCreate from "./interactionCreate";
 
-export default [
-    ready,
-    interactionCreate
-];
+export default [ready, interactionCreate];
