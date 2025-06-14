@@ -1,0 +1,9 @@
+services:
+  bottie:
+    image: ghcr.io/Efimish/Bottie
+    container_name: bottie
+    restart: unless-stopped
+    environment:
+      - token=${token}
+      - bot_id=${bot_id}
+      - admin_id=${admin_id}
