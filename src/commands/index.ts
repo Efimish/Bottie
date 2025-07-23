@@ -1,3 +1,4 @@
-import ping from "./ping";
+import info from "./info";
+import ask from "./ask";
 
-export const commands = [ping];
+export const commands = [info, ask];

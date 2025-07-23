@@ -1,15 +1,18 @@
-import type { SlashCommandBuilder, CommandInteraction } from "discord.js";
+import type {
+  CommandInteraction,
+  SharedSlashCommand,
+} from "discord.js";
 
-interface CommandOptions {
-  data: SlashCommandBuilder;
+interface CommandOptions<T extends SharedSlashCommand> {
+  data: T;
   execute(interaction: CommandInteraction): Promise<void>;
 }
 
-export class Command {
-  readonly data: SlashCommandBuilder;
+export class Command<T extends SharedSlashCommand> {
+  readonly data: T;
   readonly execute: (interaction: CommandInteraction) => Promise<void>;
 
-  constructor({ data, execute }: CommandOptions) {
+  constructor({ data, execute }: CommandOptions<T>) {
     this.data = data;
     this.execute = execute;
   }
