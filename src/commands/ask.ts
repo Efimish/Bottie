@@ -21,19 +21,25 @@ export default new Command({
 
     const question = interaction.options.getString("question");
 
-    const response = await client.chat.complete({
-      model: "mistral-medium-latest",
-      messages: [
-        {
-          role: "system",
-          content: "Answer in Markdown, but do not use triple backticks (```).",
-        },
-        { role: "user", content: question },
-      ],
-    });
+    try {
+      const response = await client.chat.complete({
+        model: "mistral-medium-latest",
+        messages: [
+          {
+            role: "system",
+            content:
+              "Answer in Markdown, but do not put triple backticks (```) at the beginning or end. Do not write more than 2000 characters.",
+          },
+          { role: "user", content: question },
+        ],
+      });
 
-    await interaction.editReply(
-      response.choices[0]?.message.content?.toString() ?? "Failed to get a response."
-    );
+      await interaction.editReply(
+        response.choices[0]?.message.content?.toString().slice(0, 2000) ??
+          "Failed to get a response."
+      );
+    } catch {
+      await interaction.editReply("Failed to get a response.");
+    }
   },
 });
