@@ -1,4 +1,4 @@
-import { Events, REST, Routes } from "discord.js";
+import { Events, ActivityType, REST, Routes } from "discord.js";
 import { Event } from "../event.ts";
 import { commands } from "../commands";
 
@@ -6,6 +6,10 @@ export default new Event({
   name: Events.ClientReady,
   async execute(client) {
     console.log(`Logged in as ${client.user.tag}`);
+    client.user.setActivity({
+      name: "beep boop",
+      type: ActivityType.Custom,
+    });
 
     const rest = new REST().setToken(process.env.DISCORD_TOKEN!);
 
