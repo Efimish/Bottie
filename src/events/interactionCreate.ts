@@ -12,7 +12,8 @@ export default new Event({
     );
 
     if (!command) {
-      throw new Error(`Command '${interaction.commandName}' not found.`);
+      console.error(`Command '${interaction.commandName}' not found.`);
+      return;
     }
 
     await command.execute(interaction);
